@@ -1,0 +1,20 @@
+{
+    "$schema": "../../umbraco-package-schema.json",
+    "name": "My Package",
+    "extensions": [
+      {
+        "type": "dashboard",
+        "name": "My Dashboard",
+        "alias": "myDashboard",
+        "meta": {
+          "label": "My Dashboard",
+          "pathname": "my-dashboard-path"
+        },
+        "conditions": {
+          "sections": ["Umb.Section.Content"]
+        },
+        "js": "/App_Plugins/the-rabbit/dist/the-rabbit.js",
+        "elementName": "the-rabbit-root"
+      }
+    ]
+  }
