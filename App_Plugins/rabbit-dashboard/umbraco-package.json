@@ -1,0 +1,20 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "name": "The rabbit dashboard",
+  "extensions": [
+    {
+      "type": "dashboard",
+      "name": "The Rabbit",
+      "alias": "rabbitDashboard",
+      "meta": {
+        "label": "Umbraco Rabbit",
+        "pathname": "umbraco-rabbit"
+      },
+      "conditions": {
+        "sections": ["Umb.Section.Content"]
+      },
+      "js": "/App_Plugins/rabbit-dashboard/dist/rabbit-dashboard.js",
+      "elementName": "umbraco-rabbit"
+    }
+  ]
+}
