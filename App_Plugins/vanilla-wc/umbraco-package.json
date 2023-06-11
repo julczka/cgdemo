@@ -1,0 +1,20 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "name": "Vanilla web component dashboard",
+  "extensions": [
+    {
+      "type": "dashboard",
+      "name": "Vanilla WC",
+      "alias": "vanillaWcDashboard",
+      "meta": {
+        "label": "Vanilla Web component",
+        "pathname": "vanilla-wc"
+      },
+      "conditions": {
+        "sections": ["Umb.Section.Content"]
+      },
+      "js": "/App_Plugins/vanilla-wc/vanilla-wc-dashboard.element.js",
+      "elementName": "vanilla-dashboard"
+    }
+  ]
+}
