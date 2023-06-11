@@ -1,46 +1,49 @@
 import { LitElement, css, html } from 'lit';
-import { customElement, query } from 'lit/decorators.js';
+import { customElement, query, state } from 'lit/decorators.js';
 import './coffee.element';
 import './head.element';
 import './hand.element';
+import './belly.element';
 import { TheRabbitHeadElement } from './head.element';
+import { CoffeeElement } from './coffee.element';
 
 @customElement('umbraco-rabbit')
 export class TheRabbit extends LitElement {
   //equals to this.shadowRoot.querySelector('#belly')
-  @query('#belly')
-  belly?: HTMLElement;
-
   @query('the-rabbit-head')
   head?: TheRabbitHeadElement;
 
+  @state()
+  _hasDisruptedBelly = false;
+
   upsetStomach() {
-    this.belly?.classList.add('after-coffee');
+    this._hasDisruptedBelly = true;
     setTimeout(() => {
-      this.belly?.classList.remove('after-coffee');
+      this._hasDisruptedBelly = false;
     }, 5000);
   }
 
-  comment = (e: Event) => {
-    console.log(
-      'WINDOW',
-      'COMPOSED:',
-      e.composed,
-      'BUBBLES',
-      e.bubbles,
-      e.composedPath()
-    );
-
-    this.head?.say("I don't like coffee!");
-  };
+  comment(event: Event) {
+    const target = event.target as CoffeeElement;
+    if (target.strength > 10) {
+      this.head?.say('Yuck! That was too strong!');
+    } else {
+      this.head?.say("Gulp! That's good coffee!");
+    }
+  }
 
   render() {
     return html`
       <the-rabbit-head></the-rabbit-head>
-      <div id="belly" @drink-coffee=${this.upsetStomach}>
-        <the-hand id="hand-l"><the-coffee></the-coffee></the-hand>
+      <the-belly
+        @drink-coffee=${this.upsetStomach}
+        ?disrupted=${this._hasDisruptedBelly}
+      >
+        <the-hand id="hand-l">
+          <the-coffee @drink-coffee=${this.comment} strength="1"></the-coffee>
+        </the-hand>
         <the-hand id="hand-r"></the-hand>
-      </div>
+      </the-belly>
       <div id="legs">
         <div class="leg left"></div>
         <div class="leg right"></div>
@@ -60,22 +63,6 @@ export class TheRabbit extends LitElement {
 
     the-rabbit-head {
       z-index: 1;
-    }
-
-    #belly {
-      width: 200px;
-      height: 250px;
-      background-color: #fff;
-      border-radius: 50%;
-      border: var(--uui-color-border) 2px solid;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .after-coffee {
-      background-image: url('/App_Plugins/rabbit-dashboard/dist/bubbles.gif');
-      background-size: contain;
     }
 
     #legs {

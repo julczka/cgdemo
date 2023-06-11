@@ -6,7 +6,10 @@ export class TheRabbitHeadElement extends LitElement {
   @property({ type: String })
   message = '';
 
-  resetMessage(timeout: number = 1000) {
+  @property({type: Number})
+  timeout = 1000;
+
+  resetMessage(timeout: number = this.timeout) {
     setTimeout(() => {
       this.message = '';
     }, timeout);
@@ -50,6 +53,7 @@ export class TheRabbitHeadElement extends LitElement {
         height: 150px;
         top: 40px;
         position: relative;
+        cursor: pointer;
       }
 
       :host::before,
@@ -72,8 +76,9 @@ export class TheRabbitHeadElement extends LitElement {
       }
 
       #message {
-        font-size: 3rem;
+        font-size: 2rem;
         position: absolute;
+        width: 100%;
         top: 40%;
         left: 120%;
       }

@@ -7,20 +7,6 @@ export class HandElement extends LitElement {
     return html`<slot><div id="placeholder"></div></slot>`;
   }
 
-  constructor() {
-    super();
-    this.addEventListener('drink-coffee', (e: Event) => {
-      console.log(
-        'HAND',
-        'COMPOSED:',
-        e.composed,
-        'BUBBLES',
-        e.bubbles,
-        e.composedPath()
-      );
-    });
-  }
-
   static styles = [
     css`
       :host {
