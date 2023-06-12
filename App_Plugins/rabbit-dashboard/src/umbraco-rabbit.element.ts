@@ -10,7 +10,7 @@ import { CoffeeElement } from './coffee.element';
 @customElement('umbraco-rabbit')
 export class TheRabbit extends LitElement {
   //equals to this.shadowRoot.querySelector('#belly')
-  @query('the-rabbit-head')
+  @query('the-head')
   head?: TheRabbitHeadElement;
 
   @state()
@@ -34,13 +34,13 @@ export class TheRabbit extends LitElement {
 
   render() {
     return html`
-      <the-rabbit-head></the-rabbit-head>
+      <the-head timeout="5000"></the-head>
       <the-belly
         @drink-coffee=${this.upsetStomach}
         ?disrupted=${this._hasDisruptedBelly}
       >
         <the-hand id="hand-l">
-          <the-coffee @drink-coffee=${this.comment} strength="1"></the-coffee>
+          <the-coffee @drink-coffee=${this.comment} strength="5"></the-coffee>
         </the-hand>
         <the-hand id="hand-r"></the-hand>
       </the-belly>
@@ -61,7 +61,7 @@ export class TheRabbit extends LitElement {
       position: relative;
     }
 
-    the-rabbit-head {
+    the-head {
       z-index: 1;
     }
 
@@ -70,7 +70,7 @@ export class TheRabbit extends LitElement {
       justify-content: space-between;
       position: absolute;
       bottom: 0;
-      width: 30%;
+      width: 200px;
     }
 
     .leg {

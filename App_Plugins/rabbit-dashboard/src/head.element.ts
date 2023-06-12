@@ -1,13 +1,22 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-@customElement('the-rabbit-head')
+@customElement('the-head')
 export class TheRabbitHeadElement extends LitElement {
   @property({ type: String })
   message = '';
 
-  @property({type: Number})
+  @property({ type: Number })
   timeout = 1000;
+
+  constructor() {
+    super();
+    this.addEventListener('click', this.#sayHello);
+  }
+
+  #sayHello() {
+    this.say('Hello!');
+  }
 
   resetMessage(timeout: number = this.timeout) {
     setTimeout(() => {
@@ -15,18 +24,9 @@ export class TheRabbitHeadElement extends LitElement {
     }, timeout);
   }
 
-  #sayHello() {
-    this.say('Hello!');
-  }
-
   say(message: string) {
     this.message = message;
     this.resetMessage();
-  }
-
-  constructor() {
-    super();
-    this.addEventListener('click', this.#sayHello);
   }
 
   render() {

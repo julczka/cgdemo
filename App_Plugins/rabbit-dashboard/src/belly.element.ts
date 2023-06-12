@@ -6,6 +6,10 @@ export class TheRabbitBellyElement extends LitElement {
   @property({ type: Boolean, reflect: true })
   disrupted = false;
 
+  render() {
+    return html`<slot></slot>`;
+  }
+
   static styles = [
     css`
       :host {
@@ -26,8 +30,4 @@ export class TheRabbitBellyElement extends LitElement {
       }
     `,
   ];
-
-  render() {
-    return html`<slot></slot>`;
-  }
 }
