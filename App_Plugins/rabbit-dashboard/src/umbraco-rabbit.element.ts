@@ -40,7 +40,7 @@ export class TheRabbit extends LitElement {
         ?disrupted=${this._hasDisruptedBelly}
       >
         <the-hand id="hand-l">
-          <the-coffee @drink-coffee=${this.comment} strength="5"></the-coffee>
+          <the-coffee @drink-coffee=${this.comment} strength="11"></the-coffee>
         </the-hand>
         <the-hand id="hand-r"></the-hand>
       </the-belly>

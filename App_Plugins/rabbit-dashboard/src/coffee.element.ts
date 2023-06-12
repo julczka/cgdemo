@@ -5,7 +5,7 @@ import { coffeeSvg } from './assets/coffee.svg';
 @customElement('the-coffee')
 export class CoffeeElement extends LitElement {
   @property({ type: Number })
-  strength = 1;
+  strength = 1; // default value
 
   constructor() {
     super();
@@ -14,9 +14,9 @@ export class CoffeeElement extends LitElement {
 
   drinkCoffee() {
     this.dispatchEvent(
-      new CustomEvent('drink-coffee', {
-        bubbles: this.strength > 10,
-        composed: false,
+      new Event('drink-coffee', {
+        bubbles: this.strength > 10, //true, because the coffee is too strong
+        composed: true,
       })
     );
   }
