@@ -23,6 +23,13 @@ export class TheRabbit extends LitElement {
     }, 5000);
   }
 
+  constructor() {
+    super();
+    this.addEventListener('eat-carrot', () => {
+      this.head?.say('Yum! Carrots are good for your eyes!');
+    });
+  }
+
   comment(event: Event) {
     const target = event.target as CoffeeElement;
     if (target.strength > 10) {
@@ -42,7 +49,7 @@ export class TheRabbit extends LitElement {
         <the-hand id="hand-l">
           <the-coffee @drink-coffee=${this.comment} strength="11"></the-coffee>
         </the-hand>
-        <the-hand id="hand-r"></the-hand>
+        <the-hand id="hand-r"><svelte-carrot></svelte-carrot></the-hand>
       </the-belly>
       <div id="legs">
         <div class="leg left"></div>

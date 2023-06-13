@@ -1,0 +1,12 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "name": "Svelte Carrot",
+  "extensions": [
+    {
+      "type": "entryPoint",
+      "name": "Svelte Carrot",
+      "alias": "svelteCarrot",
+      "js": "/App_Plugins/svelte-carrot/dist/svelte-carrot.js"
+    }
+  ]
+}
