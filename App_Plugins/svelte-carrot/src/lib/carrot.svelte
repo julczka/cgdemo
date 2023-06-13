@@ -1,4 +1,3 @@
-<!--Add this line to your web component-->
 <svelte:options tag="the-carrot" />
 
 <script lang="ts">
