@@ -49,7 +49,7 @@ export class TheRabbit extends LitElement {
         <the-hand id="hand-l">
           <the-coffee @drink-coffee=${this.comment} strength="11"></the-coffee>
         </the-hand>
-        <the-hand id="hand-r"><svelte-carrot></svelte-carrot></the-hand>
+        <the-hand id="hand-r"><the-carrot></the-carrot></the-hand>
       </the-belly>
       <div id="legs">
         <div class="leg left"></div>

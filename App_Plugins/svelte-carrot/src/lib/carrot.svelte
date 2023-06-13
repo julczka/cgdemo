@@ -1,5 +1,5 @@
 <!--Add this line to your web component-->
-<svelte:options tag="svelte-carrot" />
+<svelte:options tag="the-carrot" />
 
 <script lang="ts">
   import { get_current_component } from 'svelte/internal';
