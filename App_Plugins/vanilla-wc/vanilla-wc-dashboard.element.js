@@ -33,7 +33,7 @@ class MyVanillaDashboardCounter extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        if (name = "count") this.count = newValue;
+        if (name === "count") this.count = newValue;
     }
 
     get count() {
